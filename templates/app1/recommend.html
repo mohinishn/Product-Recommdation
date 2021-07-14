@@ -311,50 +311,13 @@ console.log("===============>",JSON.stringify("{{product|escapejs}}"));
    <title>Code Assassins | Recommend</title>
 </head>
 <body>
-    <header>
-        <nav id = "navbar">
-            <div class="container">
-            <h1 class="logo"><a href="first"> CA</a></h1>
-                <ul>
-                    <li><a href="first">Home</a></li>
-                    <li><a class="current" href="contact">Recommend a Product</a></li>
-                    <li><a href="about">About</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
 
-    <section id="contact-form" class="py-3">
-        <div class="container">
-            <h1 class="l-heading">Get <span class="text-primary">Recommendation</span></h1>
-            <!-- <p>Enter a Product Name</p> -->
-            <form action="{% url 'contact' %}" method="post">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="name">Enter a Product Name</label>
-                    <input type="text" name="product" id="product">
-                </div>
-                <!-- <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" email="email" id="email">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea type="text" message="message" id="message"></textarea>
-                </div> -->
-                <button type="submit" class="btn">Submit</button>
-            </form>
-        </div>
-    </section>
-
-    <section id="contact-table" class="py-3">
+    <section id="contact-table">
         <div class="container">      
 
             <!-- ---{{ product}} -->
 
             {% if product %}
-
-            <h3>Recommended Products</h3>
              <table class="styled-table">
                 <tr>
                     <th align="left"></th>
@@ -371,8 +334,14 @@ console.log("===============>",JSON.stringify("{{product|escapejs}}"));
             {% for key in product %}            
             <tr>
                 {% for key1,value1 in key.items %}
-                {% if key1 == "ProductExternalID" %}                   
-                <td><input type="checkbox" id={{value1}} name={{value1}} value={{value1}}></td>
+                {% if key1 == "ProductID" %}                   
+                <td>
+					<!-- <input type="checkbox" id={{value1}} name={{value1}} value={{value1}}> -->
+					<a href="https://gehealthcare-amer--qa2.my.salesforce.com/apex/Apttus_Config2__Cart#!/flows/Equipment_Flow/CartGrid/businessObjects/a6R0c000000IVBK/products/{{value1}}/configure" target="_blank">
+					<img src="{% static 'img/wrench.png' %}" alt="Configure" style="width: 20px; height: 20px;">
+					</a>
+				</td>
+				<td align="left"><a href="https://gehealthcare-amer--qa2.my.salesforce.com/{{value1}}" target="_blank">View</a>
                 {% endif %}
                 {% endfor %}
 
@@ -390,9 +359,9 @@ console.log("===============>",JSON.stringify("{{product|escapejs}}"));
               {% if key2 == "ProductDescription" %}                   
               <td align="left">{{value2}} </td>
               {% endif %}
-			  {% if key2 == "ProductID" %}                   
+			  <!-- {% if key2 == "ProductID" %}                   
               <td align="left"><a href="https://gehealthcare-amer--qa.my.salesforce.com/{{value2}}" target="_blank">View</a> </td>
-              {% endif %}
+              {% endif %} -->
             {% endfor %}
         </tr>
             {% endfor %}
@@ -402,62 +371,13 @@ console.log("===============>",JSON.stringify("{{product|escapejs}}"));
 
 
 
-            <!-- {% for key, value in product.items %} 
-           
-            <table class="styled-table">
-                <tr>
-                    <th>select</th>
-                    <th>OpportunityId</th>
-                    <th>AccountName</th>
-                    <th>OpptyName</th>
-                    <th>ProductID</th>
-                    <th>ProductName</th>
-                    <th>Quantity</th>
-                    <th>NetPrice</th>                    
-                </tr>
-                {% for key1 in value %}
-                <tr>
-                    {% for key3,value3 in key1.items %}
-                    {% if key3 == "ProductID" %}                   
-                    <td><input type="checkbox" id={{value3}} name={{value3}} value={{value3}}></td>
-                    {% endif %}
-                    {% endfor %}
-
-                  {% for key2,value2 in key1.items %}
-                    <td>{{value2}} </td>
-                    {% endfor %}
-                </tr>
-                {% endfor %}
-            </table> --> 
-            <!-- {% endfor %}   -->
-            {% if product %}
+            <!-- {% if product %}
             <button type="button" class="btn" onclick="addRmProduct()">Add to Cart</button> 
-            <!-- <button type="button" class="btn" onclick="addRmProduct()">Show Cart</button>  -->
-            {% endif %}
+            <button type="button" class="btn" onclick="addRmProduct()">Show Cart</button>
+            {% endif %} -->
           
         </div>
     </section>
 
-    <section id="features">
-        <div class="box bg-light">
-            <i class="fab fa-python fa-3x"></i>
-            <h3>Recommendations</h3>
-            <p>Using python we recommend products, by extracting features from related metadata fields.</p>
-        </div>
-        <div class="box bg-primary">
-                <i class="fas fa-pager fa-3x"></i>
-                <h3>API Support</h3>
-                <p> This product has multiple flavours. This recommendation algorithm can be used as an API.</p>
-        </div>
-        <div class="box bg-light">
-                <i class="fas fa-crop-alt fa-3x"></i>
-                <h3>IFrame Compatible</h3>
-                <p> This product has multiple flavours. This algorithm also works as a website and can be used as an Iframe.</p>
-        </div>
-    </section>
-    
-    <footer id="main-footer">
-        <p>CA &copy 2021, All Rights Reserverd</p>
-    </footer>
 </body>
 </html>
