@@ -293,14 +293,14 @@
           color: #009879;
       }    
       </style> -->
-    <title>Code Assassins | About</title>
+    <title>One Recommendation Portal | About</title>
 </head>
 
 <body>
     <header>
         <nav id="navbar">
             <div class="container">
-                <h1 class="logo"><a href="first"> CA</a></h1>
+                <h1 class="logo"><a href="first"> ORP</a></h1>
                 <ul>
                     <li><a href="first">Home</a></li>
                     <li><a href="contact">Recommend a Product</a></li>
@@ -315,17 +315,24 @@
         <div class="container">
             <div class="info-left">
                 <h1 class="l-heading"><span class="text-primary">About</span> our Idea</h1>
-                <p>The idea is by using machine learning to provide recommendation on :</p>
+                <p>
                 <ul>
-                    <li>what is the recommended configuration for each product recommendation</li>
-                    <li>What is the recommended product to be offered</li>
+                    <li>Create a portal where multiple recommendation algorithms can be loaded. be it Product Recommendation, Configuration Recommendation, anything which is helpful for reps to sell.</li>
+                    <li>This portal can include a website for each recommender, an API. both of which can be used either as an Iframe or Webservice.</li>
+		    <li>Be it one product but various applications for each type of recommendations</li>
                 </ul>
-
-                <p>Recommendation can be based on:</p>
-                <ul>
-                    <li>Combination of IB which similar customer profile already have</li>
-                    <li>Past history of sold product configuration for similar customer profile</li>
-                </ul>
+		</p>
+                <p>Uses cases of this are (assuming product recommendation) -</p>
+		<ol>
+			<li>In Salesforce during the quoting process, where other similar or most frequently sold products can be recommended once a product is selected for quoting.
+				<ul>
+					<li>a. API/ IFrame use will depend on which type of UI the user wants. Pre-Built(can use IFrame), or custom built (API).</li>
+					<li>b. can be integrated in QuoteHub Page, Opportunity Page, smart catalogue, etc.</li>
+					<li>This can be integrated anywhere, where a HTTP callout is possible, if not they can use this as Iframe and can integrate directly on their webpages. </li>
+				</ul>
+			</li>
+		</ol>
+	
 
             </div>
             <div class="info-right">
@@ -339,22 +346,8 @@
 
     <section id="testimonials" class="py-3">
         <div class="container">
-            <h2 class="l-heading">Know the DEVELOPERS</h2>
-            <div class="testimonial bg-primary">
-                <img src="{% static 'img/rakesh.jpg' %}" alt="person1">
-                <p><b>Rakesh Gottipati</b></p>
-                <p>Sr Staff Technical Product Manager</p>
-                <p>HC DT-Commercial</p>
-
-            </div>
-
-            <div class="testimonial bg-primary">
-                <img src="{% static 'img/Deepak.jpg' %}" alt="person2 ">
-                <p><b>Deepak Kumar</b></p>
-                <p>Staff Technical Architect</p>
-                <p>HC DT-Commercial</p>
-            </div>
-
+            <h2 class="l-heading">Know the Developer</h2>
+            
             <div class="testimonial bg-primary">
                 <img src="{% static 'img/mohinish.jpg' %}" alt="person1">
                 <p><b>Mohinish Nandwana</b></p>
@@ -362,33 +355,6 @@
                 <p>HC DT-Commercial</p>
             </div>
 
-            <div class="testimonial bg-primary">
-                <img src="{% static 'img/varun.png' %}" alt="person2 ">
-                <p><b>Varun Shah</b></p>
-                <p>Salesforce Developer</p>
-                <p>HC DT-Commercial</p>
-            </div>
-
-            <div class="testimonial bg-primary">
-                <img src="{% static 'img/sateesh.png' %}" alt="person2 ">
-                <p><b>Sateesh Chava</b></p>
-                <p>Salesforce Developer</p>
-                <p>HC DT-Commercial</p>
-            </div>
-
-            <div class="testimonial bg-primary">
-                <img src="{% static 'img/surya.jpg' %}" alt="person2 ">
-                <p><b>Surya Chandra Peddada</b></p>
-                <p>Developer</p>
-                <p>HC DT-Commercial</p>
-            </div>
-
-            <div class="testimonial bg-primary">
-                <img src="{% static 'img/manasa.png' %}" alt="person2 ">
-                <p><b>Manasa Kadaveru</b></p>
-                <p>Developer</p>
-                <p>HC DT-Commercial</p>
-            </div>
 
         </div>
     </section>
